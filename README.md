@@ -1,58 +1,88 @@
-# Match-3 Puzzle Game
+# Match-3 Puzzle Game (React Native)
 
-웹 기반 Match-3 퍼즐 게임입니다. 같은 색깔의 타일을 3개 이상 연결하여 점수를 얻는 게임입니다.
+React Native로 구현한 Match-3 퍼즐 게임입니다.
 
 ## 게임 방법
 
-1. **타일 매칭**: 인접한 타일을 클릭하여 교환하고, 같은 색깔 3개 이상을 일렬로 맞추세요
+1. **타일 매칭**: 인접한 타일을 터치하여 교환하고, 같은 색깔 3개 이상을 일렬로 맞추세요
 2. **점수 획득**: 매칭된 타일이 사라지고 점수를 얻습니다
 3. **콤보**: 연속적인 매칭으로 콤보 배수를 늘려 더 높은 점수를 얻으세요
 4. **이동 제한**: 30번의 이동 내에 최고 점수를 달성하세요
 
-## 게임 시작하기
+## 설치 및 실행
 
-1. `index.html` 파일을 웹 브라우저에서 열기
-2. 또는 로컬 서버 실행:
-   ```bash
-   python -m http.server 8000
-   # 또는
-   npx serve .
-   ```
-3. 브라우저에서 `http://localhost:8000` 접속
+### 사전 요구사항
+- Node.js 20+
+- React Native development environment
+- iOS: Xcode 12+
+- Android: Android Studio
 
-## 기술 스택
+### 설치
+```bash
+# 의존성 설치
+npm install
 
-- **HTML5 Canvas**: 게임 렌더링
-- **Vanilla JavaScript**: 게임 로직
-- **CSS3**: 스타일링 및 애니메이션
+# iOS 의존성 설치 (Mac only)
+cd ios && pod install && cd ..
+```
+
+### 실행
+```bash
+# iOS
+npm run ios
+
+# Android
+npm run android
+
+# Metro bundler (별도 터미널)
+npm start
+```
 
 ## 주요 기능
 
 - 8x8 게임 보드
-- 7가지 다양한 색상의 타일
+- 7가지 색상의 타일
 - 부드러운 애니메이션
 - 점수 시스템과 콤보 배수
-- 반응형 디자인 (모바일 지원)
-- 터치 스크린 지원
+- 터치 기반 인터랙션
+- 게임 재시작 기능
 
-## 게임 구조
+## 프로젝트 구조
 
 ```
 ma-match/
-├── index.html          # 메인 HTML 파일
-├── style.css           # 스타일시트
-├── game.js             # 게임 로직
-├── README.md           # 문서
-└── .gitignore          # Git 제외 파일
+├── src/
+│   ├── screens/        # 게임 화면
+│   │   └── GameScreen.tsx
+│   ├── components/      # 재사용 가능한 컴포넌트
+│   │   ├── GameBoard.tsx
+│   │   ├── GameHeader.tsx
+│   │   └── Tile.tsx
+│   ├── utils/          # 게임 로직
+│   │   └── gameLogic.ts
+│   └── types/          # TypeScript 타입 정의
+│       └── index.ts
+├── App.tsx             # 앱 진입점
+├── android/            # Android 네이티브 코드
+├── ios/                # iOS 네이티브 코드
+└── package.json        # 프로젝트 설정
+
 ```
+
+## 기술 스택
+
+- **React Native**: 크로스 플랫폼 모바일 앱
+- **TypeScript**: 타입 안정성
+- **React Hooks**: 상태 관리
+- **Animated API**: 애니메이션
 
 ## 향후 개선 사항
 
-- [ ] 레벨 시스템
+- [ ] 사운드 효과 추가
 - [ ] 파워업 아이템
-- [ ] 사운드 효과
-- [ ] 최고 점수 저장
-- [ ] 다양한 게임 모드
+- [ ] 레벨 시스템
+- [ ] 리더보드
+- [ ] 소셜 기능
 
 ## 라이선스
 
